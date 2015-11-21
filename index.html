@@ -9,6 +9,7 @@
 				var sort_animation = new SortAnimation();
 				document.getElementById("push_back").addEventListener("click", sort_animation.push_back);
 				document.getElementById("clear").addEventListener("click", sort_animation.clear);
+                document.getElementById("sort").addEventListener("click", sort_animation.sort);
 			}
 		</script>
 	</head>
@@ -21,6 +22,7 @@
 				<input id="item" type="text" value="0">
 				<input id="push_back" type="button" value="Push back">
 				<input id="clear" type="button" value="Clear">
+                <input id="sort" type="button" value="Sort">
 			</div>
 			<div id="source" class="step">
 			</div>
