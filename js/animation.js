@@ -37,14 +37,13 @@ function SortAnimation () {
         show_source();
     }
 
-
     this.clear = function () {
         source = [];
         show_source();
     }
 
     this.sort = function () {
-        quick_sort(source, 0, source.length);
+        quick_sort(source, 0, source.length - 1);
         show_source();
     }
 }

@@ -38,3 +38,19 @@ QUnit.test(
         }
     }
 );
+
+QUnit.test(
+    "Quick sort test",
+    function(assert) {
+        var data = [
+            {"source": [3, 1, 0], "expected_length": 3},
+            {"source": [1, -1, 0, 7], "expected_length": 4},
+            {"source": [], "expected_length": 0}
+        ];
+        for(var i = 0; i < data.length; ++i) {
+            var source = data[i]["source"];
+            quick_sort(source, 0, source.length - 1);
+            assert.equal(source.length, data[i]["expected_length"]);
+        }
+    }
+);
