@@ -1,3 +1,5 @@
+/* global QUnit */
+
 QUnit.test(
     "Swap array's items test",
     function(assert) {
@@ -26,8 +28,8 @@ QUnit.test(
             {"source": [1, 2], "from": 0, "to": 1 , "expected_source": [1, 2], "expected_border": 1, "expected_length": 2},
             {"source": [1, 3, 2], "from": 0, "to": 2 , "expected_source": [1, 2, 3], "expected_border": 1, "expected_length": 3},
             {"source": [-1, 3, 1, 2, 5], "from": 1, "to": 3 , "expected_source": [-1, 1, 2, 3, 5], "expected_border": 2, "expected_length": 5},
-
             {"source": [2, 8, 7, 1, 3, 5, 6, 4], "from": 0, "to": 7 , "expected_source": [2, 1, 3, 4, 7, 5, 6, 8], "expected_border": 3, "expected_length": 8},
+            {"source": [-1, -9], "from": 0, "to": 1, "expected_source": [-9, -1], "expected_border": 0, "expected_length": 2}
         ];
         for(var i = 0; i < data.length; ++i) {
             var source = data[i]["source"];
@@ -43,14 +45,18 @@ QUnit.test(
     "Quick sort test",
     function(assert) {
         var data = [
-            {"source": [3, 1, 0], "expected_length": 3},
-            {"source": [1, -1, 0, 7], "expected_length": 4},
-            {"source": [], "expected_length": 0}
+            {"source": [3, 1, 0], "expected": [0, 1, 3], "expected_length": 3},
+            {"source": [1, -1, 0, 7], "expected": [-1, 0, 1, 7], "expected_length": 4},
+            {"source": [], "expected": [], "expected_length": 0},
+            {"source": [1, -9, -1], "expected": [-9, -1, 1], "expected_length": 3},
+            {"source": [-1, -9], "expected": [-9, -1], "expected_length": 2}
         ];
         for(var i = 0; i < data.length; ++i) {
             var source = data[i]["source"];
             quick_sort(source, 0, source.length - 1);
+            assert.deepEqual(source, data[i]["expected"]);
             assert.equal(source.length, data[i]["expected_length"]);
         }
     }
 );
+
