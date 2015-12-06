@@ -1,6 +1,10 @@
-function swap(array, index_first, index_second) {
-    var first_item = array.splice(index_first, 1, array[index_second])[0];
-    array.splice(index_second, 1, first_item);
+function random(from, to) {
+    return Math.floor(Math.random() * (to - from + 1)) + from;
+}
+
+function swap(array, from, to) {
+    var first_item = array.splice(from, 1, array[to])[0];
+    array.splice(to, 1, first_item);
 }
 
 function partition_lomuto(array, from, to) {
@@ -19,6 +23,7 @@ function partition_lomuto(array, from, to) {
 
 function quick_sort(array, from, to) {
     if (to > from) {
+        swap(array, random(from, to), to);
         var border = partition_lomuto(array, from, to);
         quick_sort(array, from, border - 1);
         quick_sort(array, border + 1, to);
