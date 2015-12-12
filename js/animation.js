@@ -42,9 +42,16 @@ function SortAnimation () {
 
     var append_source_to_view = function () {
         var node = document.createElement("div");
-        node.className = "step";
+        node.className = "steps";
         node.appendChild(document.createTextNode(get_source_as_string()));
         document.getElementById("container").appendChild(node);
+    };
+
+    var clear_steps = function () {
+        var steps = document.getElementsByClassName("steps");
+        while(steps.length > 0) {
+            steps[0].parentNode.removeChild(steps[0]);
+        }
     };
 
     var get_source_as_string = function () {
@@ -52,17 +59,21 @@ function SortAnimation () {
     };
 
     this.push_back = function () {
-        var value = document.getElementById("item").value;
-        source.push(parseInt(value));
-        show_source();
+        var value = parseInt(document.getElementById("item").value);
+        if (!isNaN(value)) {
+            source.push(parseInt(value));
+            show_source();
+        }
     };
 
     this.clear = function () {
         source = [];
         show_source();
+        clear_steps();        
     };
 
     this.sort = function () {
+        clear_steps();
         quick_sort(source, 0, source.length - 1, append_source_to_view);
     };
 }

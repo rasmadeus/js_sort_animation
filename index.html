@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html lang="uk">
-	<head>
-		<title>Quick sort animation</title>
-		<link rel="stylesheet" type="text/css" href="./css/styles.css">
-
-		<script type="text/javascript" src="./js/animation.js"></script>
-		<script>
-			window.onload = function () {
-				var sort_animation = new SortAnimation();
-				document.getElementById("push_back").addEventListener("click", sort_animation.push_back);
-				document.getElementById("clear").addEventListener("click", sort_animation.clear);
-                                document.getElementById("sort").addEventListener("click", sort_animation.sort);
-			};
-		</script>
-	</head>
-	<body>
-		<div id="container" class="step_container">
-			<div class="step">
-				<h1>Quick Sort Animation</h1>
-			</div>
-			<div class="step">
-				<input id="item" type="text" value="0">
-				<input id="push_back" type="button" value="Push back">
-				<input id="clear" type="button" value="Clear">
-                                <input id="sort" type="button" value="Sort">
-			</div>
-			<div id="source" class="step">
-			</div>
-		</div>
-	</body>
+    <head>
+        <title>Quick sort animation</title>
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+        <script type="text/javascript" src="./js/animation.js"></script>
+        <script>
+            window.onload = function () {
+                var sort_animation = new SortAnimation();
+                document.getElementById("push_back").addEventListener("click", sort_animation.push_back);
+                document.getElementById("clear").addEventListener("click", sort_animation.clear);
+                document.getElementById("sort").addEventListener("click", sort_animation.sort);
+            };
+        </script>
+    </head>
+    <body>
+        <div id="container" class="step_container">
+            <div class="step">
+                <h1>Quick Sort Animation</h1>
+            </div>
+            <div class="step">
+                <input id="item" class="line_edit" type="text" value="0">
+                <input id="push_back" class="button" type="button" value="Push back">
+                <input id="clear" class="button" type="button" value="Clear">
+                <input id="sort" class="button" type="button" value="Sort">
+            </div>
+            <div id="source">
+            </div>
+        </div>
+    </body>
 </html>
